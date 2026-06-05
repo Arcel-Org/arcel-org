@@ -1252,6 +1252,83 @@
     <span style="color:var(--dim);margin-left:0.75rem;">— requires Docker</span>
   </div>
 
+  <!-- Seam + Seamless flagship section -->
+  <div class="sec-header">
+    <span class="badge badge-teal">Open Source · AGPL-3.0</span>
+    <span class="sec-title">Post-Quantum Security Infrastructure</span>
+  </div>
+  <p style="color:var(--muted);max-width:640px;margin:0 0 2rem;">
+    Built for adversarial environments. Every connection is post-quantum encrypted from byte one — resistant to harvest-now-decrypt-later attacks and compliant with CNSA 2.0 / NIST SP 800-52 Rev 2.
+  </p>
+
+  <div class="projects-grid" style="grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:1.5rem;margin-bottom:3rem;">
+
+    <a class="proj-card" href="https://github.com/North9-Labs/Seam" target="_blank" style="border-color:var(--teal);padding:1.75rem;">
+      <div class="proj-card-top">
+        <div class="proj-icon" style="background:var(--teal-bg);">⚡</div>
+        <span class="status-pill pill-active">Stable</span>
+      </div>
+      <div class="proj-name" style="font-size:1.4rem;">Seam</div>
+      <p class="proj-desc" style="margin-bottom:1rem;">Post-quantum UDP transport with capabilities beyond any current military standard. The only network transport with fully quantum-resistant identity, per-epoch forward secrecy, and built-in traffic analysis resistance.</p>
+      <ul style="color:var(--muted);font-size:0.82rem;line-height:1.7;padding-left:1.1rem;margin:0 0 1rem;">
+        <li><strong style="color:var(--fg);">Hybrid PQ handshake</strong> — ML-KEM-768 + X25519, Noise_XX protocol</li>
+        <li><strong style="color:var(--fg);">PQ identity</strong> — ML-DSA-65 (FIPS 204) signatures; identity is quantum-resistant</li>
+        <li><strong style="color:var(--fg);">Double ratchet</strong> — per-epoch forward secrecy; past sessions safe after key compromise</li>
+        <li><strong style="color:var(--fg);">Traffic analysis resistance</strong> — fixed-size packet padding, cover traffic, timing jitter, protocol obfuscation</li>
+        <li><strong style="color:var(--fg);">Multi-path anti-jamming</strong> — simultaneous paths; adversary must jam ALL paths to disrupt</li>
+        <li><strong style="color:var(--fg);">Reed-Solomon FEC</strong> — configurable k/r, tuned for satellite and HF radio links</li>
+        <li><strong style="color:var(--fg);">FIPS mode</strong> — AES-256-GCM + SHA-256, startup banner citing FIPS 197/203/204/180-4</li>
+        <li><strong style="color:var(--fg);">TOFU host pinning</strong> — ML-DSA-65 fingerprints in known_hosts; MITM impossible</li>
+        <li><strong style="color:var(--fg);">seam shell</strong> — full PTY remote shell over PQ channel; SSH replacement</li>
+        <li><strong style="color:var(--fg);">seam forward / proxy</strong> — port forwarding, --via multi-hop, SOCKS5 proxy</li>
+        <li><strong style="color:var(--fg);">seam cp / sync</strong> — BLAKE3/SHA-256 integrity, resumable, content-addressed</li>
+        <li><strong style="color:var(--fg);">Client audit log</strong> — O_APPEND JSONL per command; NIST SP 800-53 AU-2/AU-12</li>
+      </ul>
+      <div class="chip-row" style="flex-wrap:wrap;gap:0.4rem;">
+        <span class="chip">Rust</span>
+        <span class="chip">ML-KEM-768</span>
+        <span class="chip">ML-DSA-65</span>
+        <span class="chip">FIPS 203/204</span>
+        <span class="chip">Noise_XX</span>
+        <span class="chip">CNSA 2.0</span>
+        <span class="chip">AGPL-3.0</span>
+      </div>
+    </a>
+
+    <a class="proj-card" href="https://github.com/North9-Labs/Seamless" target="_blank" style="border-color:var(--teal);padding:1.75rem;">
+      <div class="proj-card-top">
+        <div class="proj-icon" style="background:var(--teal-bg);">🛡️</div>
+        <span class="status-pill pill-active">Stable</span>
+      </div>
+      <div class="proj-name" style="font-size:1.4rem;">Seamless</div>
+      <p class="proj-desc" style="margin-bottom:1rem;">Production-grade reverse tunnel relay built for government and enterprise. Self-hosted alternative to ngrok/Cloudflare Tunnel with TLS 1.3 enforcement, structured audit logging, and full compliance instrumentation.</p>
+      <ul style="color:var(--muted);font-size:0.82rem;line-height:1.7;padding-left:1.1rem;margin:0 0 1rem;">
+        <li><strong style="color:var(--fg);">TLS 1.3 only</strong> — CNSA 2.0 / NIST SP 800-52 Rev 2 compliant; TLS 1.2 rejected</li>
+        <li><strong style="color:var(--fg);">Let's Encrypt ACME</strong> — DNS-01 via Cloudflare, HTTP-01 fallback, auto-renewal</li>
+        <li><strong style="color:var(--fg);">Custom domains</strong> — SNI-based routing for HTTP and HTTPS; bring your own domain</li>
+        <li><strong style="color:var(--fg);">Load balancing</strong> — weighted round-robin across backends, TCP health checks</li>
+        <li><strong style="color:var(--fg);">Per-tunnel DDoS protection</strong> — token bucket, 429 + Retry-After, admin UI threat badges</li>
+        <li><strong style="color:var(--fg);">mTLS for admin port</strong> — mutual TLS with client CA verification; FIPS 204 ready</li>
+        <li><strong style="color:var(--fg);">Structured audit log</strong> — 11+ event types, append-only JSONL, midnight rotation, SIEM webhook</li>
+        <li><strong style="color:var(--fg);">Prometheus /metrics</strong> — 10+ counters + request latency histogram</li>
+        <li><strong style="color:var(--fg);">Admin IP allowlist</strong> — pure IPv4 CIDR bitmask; no admin UI exposure without restriction</li>
+        <li><strong style="color:var(--fg);">SIGUSR1 cert rotation</strong> — hot-swap TLS cert without dropping connections</li>
+        <li><strong style="color:var(--fg);">IP CIDR deny list</strong> — block hostile ASNs/Tor exits, SIGHUP hot-reload</li>
+        <li><strong style="color:var(--fg);">Tunnel expiry + keepalive</strong> — auto-evict stale tunnels, detect dead clients</li>
+      </ul>
+      <div class="chip-row" style="flex-wrap:wrap;gap:0.4rem;">
+        <span class="chip">Rust</span>
+        <span class="chip">TLS 1.3</span>
+        <span class="chip">ACME</span>
+        <span class="chip">mTLS</span>
+        <span class="chip">Prometheus</span>
+        <span class="chip">CNSA 2.0</span>
+        <span class="chip">AGPL-3.0</span>
+      </div>
+    </a>
+
+  </div>
+
   <!-- Other open-source projects -->
   <div class="sec-header">
     <span class="badge badge-purple">Open Source</span>
@@ -1259,36 +1336,6 @@
   </div>
 
   <div class="projects-grid">
-
-    <a class="proj-card" href="https://github.com/North9-Labs/Seam" target="_blank">
-      <div class="proj-card-top">
-        <div class="proj-icon" style="background:var(--teal-bg);">🔒</div>
-        <span class="status-pill pill-active">Stable</span>
-      </div>
-      <div class="proj-name">Seam</div>
-      <p class="proj-desc">Post-quantum encrypted UDP transport. ML-KEM-768 + X25519 hybrid KEM, Noise_XX handshake, multi-stream, Reed-Solomon FEC, sub-millisecond session resumption.</p>
-      <div class="chip-row">
-        <span class="chip">Rust</span>
-        <span class="chip">ML-KEM-768</span>
-        <span class="chip">Noise_XX</span>
-        <span class="chip">UDP</span>
-      </div>
-    </a>
-
-    <a class="proj-card" href="https://github.com/North9-Labs/Seamless" target="_blank">
-      <div class="proj-card-top">
-        <div class="proj-icon" style="background:var(--teal-bg);">🌐</div>
-        <span class="status-pill pill-active">Stable</span>
-      </div>
-      <div class="proj-name">Seamless</div>
-      <p class="proj-desc">Post-quantum reverse tunnels. Expose any service through a relay you control — HTTP by subdomain, raw TCP by port. Built on Seam; client dials out through NAT with no port forwarding.</p>
-      <div class="chip-row">
-        <span class="chip">Rust</span>
-        <span class="chip">Reverse tunnel</span>
-        <span class="chip">NAT traversal</span>
-        <span class="chip">AGPL-3.0</span>
-      </div>
-    </a>
 
     <a class="proj-card" href="https://github.com/North9-Labs/neural-kernel" target="_blank">
       <div class="proj-card-top">
